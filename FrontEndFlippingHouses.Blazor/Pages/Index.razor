@@ -2,8 +2,22 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<link rel="stylesheet" href="css/styles.css">
 
-Welcome to your new app.
+<h1>Welcome to Flipping Houses 101.</h1>
+<NavLink href="page2">Home</NavLink><br>
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+<p><u>Please enter the following information below</u>!!!</p>
+
+
+<Label>ZIP Code</Label><input type="text" placeholder="Zip Code" title="Please enter a Zip Code" pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$"><br>
+<br>
+
+<label for="price">Choose a maximum house price: </label><br>
+<input type="range" name="price" id="price" min="50000" max="500000" step="100" value="250000" >
+<output class="price-output" for="price"></output>
+
+@* Write all your C# code *@
+@code{
+   
+}
