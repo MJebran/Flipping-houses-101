@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mustafajebran/Desktop/OOP/FinalProjectOopRealState/backend/backend.csproj",
+      "projectUniqueName": "/Users/mustafajebran/Desktop/OOP/flipping-houses-101/backend/backend.csproj",
       "projectName": "backend",
-      "projectPath": "/Users/mustafajebran/Desktop/OOP/FinalProjectOopRealState/backend/backend.csproj",
+      "projectPath": "/Users/mustafajebran/Desktop/OOP/flipping-houses-101/backend/backend.csproj",
       "packagesPath": "/Users/mustafajebran/.nuget/packages/",
-      "outputPath": "/Users/mustafajebran/Desktop/OOP/FinalProjectOopRealState/backend/obj/",
+      "outputPath": "/Users/mustafajebran/Desktop/OOP/flipping-houses-101/backend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/mustafajebran/.nuget/NuGet/NuGet.Config"
