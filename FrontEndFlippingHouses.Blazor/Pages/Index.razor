@@ -1,4 +1,6 @@
-﻿@page "/"
+﻿@using FlippingProperty;
+
+@page "/"
 
 <PageTitle>Index</PageTitle>
 
@@ -103,15 +105,44 @@
 <br>
 <div class="Search">
     <div class="col">
-        <button class="button button-example5">Search</button>
+        <button @onclick="ApiCallSearch" class="button button-example5">Search</button>
     </div>
 </div>
 
 
 
+@if (comment != null )
+{
+    @* <p>@ShownsPrice</p>
+    <p>@internetEntireListingDisplay</p> *@
+    <p>@comment</p>
+    <p>@showingContactName</p>
 
+}
 
 @* Write all your C# code *@
 @code {
+    string ShownsPrice = "Book" ;
+    string showingContactName = "Mustafa";
+    string internetEntireListingDisplay;
+    int  area;
+    string comment = "PrivateRemarks";
+
+    private async Task ApiCallSearch()
+    {
+        ApiHelper.StartClient();
+        HouseModel House = await HouseProcessor.LoudHouse(); // one house , houseMoel is the type
+        //var House = ListofALLHouses[0]; //first house in the list 
+        @* ShownsPrice = House.closePrice;
+        showingContactName = House.showingContactName;
+        internetEntireListingDisplay = House.internetEntireListingDisplay;
+        area = House.area; *@
+        comment = House.privateRemarks;
+        @* showingContactName = House.error; *@
+        Console.WriteLine($"{House.privateRemarks} PR {comment} ");
+        
+
+    }
+
 
 }
