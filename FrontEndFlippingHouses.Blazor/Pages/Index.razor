@@ -13,10 +13,19 @@
 <p><u>Please enter the following information below</u>!!!</p>
 
 <br>
+<div>
+    <label for="Street Address">Street Address : </label><input type="text" placeholder="Street Address" title="Please enter the Street Address" @bind = "StreetAddress">
+</div>
+<br>
+<div>
+    <label for="City">City : </label><input type="text" placeholder="City name" title="Please enter the City name" @bind = "City">
+</div>
+<br>
+
 <form>
     <fieldset>
         <label for="state">State: </label>
-        <select id="state" name="state">
+        <select id="state" name="state" @bind = "State">
             <option value="---">---</option>
             <option value="Alabama">Alabama</option>
             <option value="Alaska">Alaska</option>
@@ -77,13 +86,12 @@
     </fieldset>
 </form>
 
-<label for="City"></label>
 <br>
-<Label>Zip Code:</Label><input type="text" placeholder="Zip Code" maxlength="5" title="Please enter a Zip Code"
+<Label>ZipCode: </Label><input type="text" placeholder="Zip Code" maxlength="5" title="Please enter a Zip Code" @bind ="ZipCode"
     pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$"><br>
 <br>
 
-<fieldset>
+@* <fieldset>
     <label for="price">Choose a maximum house price $: </label>
     <input type="number" placeholder="Max Price" min="0" step="1000" max="10000000000">
 </fieldset><br>
@@ -107,42 +115,24 @@
     <div class="col">
         <button @onclick="ApiCallSearch" class="button button-example5">Search</button>
     </div>
-</div>
+</div> *@
 
 
 
-@if (comment != null )
-{
-    @* <p>@ShownsPrice</p>
-    <p>@internetEntireListingDisplay</p> *@
-    <p>@comment</p>
-    <p>@showingContactName</p>
 
-}
+
 
 @* Write all your C# code *@
 @code {
-    string ShownsPrice = "Book" ;
-    string showingContactName = "Mustafa";
-    string internetEntireListingDisplay;
-    int  area;
-    string comment = "PrivateRemarks";
+    string StreetAddress;
+    string City;
+    string State;
+    string ZipCode;
 
     private async Task ApiCallSearch()
     {
         ApiHelper.StartClient();
         HouseModel House = await HouseProcessor.LoudHouse(); // one house , houseMoel is the type
-        //var House = ListofALLHouses[0]; //first house in the list 
-        @* ShownsPrice = House.closePrice;
-        showingContactName = House.showingContactName;
-        internetEntireListingDisplay = House.internetEntireListingDisplay;
-        area = House.area; *@
-        comment = House.privateRemarks;
-        @* showingContactName = House.error; *@
-        Console.WriteLine($"{House.privateRemarks} PR {comment} ");
-        
-
+        //var House = ListofALLHouses[0]; //first house in the list
     }
-
-
 }
