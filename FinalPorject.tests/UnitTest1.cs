@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace FinalPorject.tests;
+namespace FinalProject.tests;
 
 public class Tests
 {
@@ -10,7 +10,7 @@ public class Tests
     }
 
     [Test]
-    public void Test1()
+    public void ApiHelper()
     {
         Assert.Pass();
     }

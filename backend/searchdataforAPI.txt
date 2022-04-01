@@ -30,12 +30,4 @@ var newListOfAccounts = JsonSerializer.Deserialize<List<Account>>(json);
 ///
 data fro store.js
 
-http://www.zillow.com/webservice/GetSearchResults.htm
 
-
-
-https://api.simplyrets.com/properties/1005252
-##API###
-https://simplyrets.com
-accept     application/json
-Authorization    Basic c2ltcGx5cmV0czpzaW1wbHlyZXRz
