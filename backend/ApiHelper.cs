@@ -15,6 +15,6 @@ public static partial class ApiHelper
         ApiClient.DefaultRequestHeaders.Accept.Clear();
         // This give us the json file 
         ApiClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        //Root myDeserializedClass = JsonConvert.DeserializeObject(myJsonResponse); 
     }
 }
-        
