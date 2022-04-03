@@ -1,10 +1,10 @@
 using System.Text.Json;
 namespace FlippingProperty
 {
-    public class HouseResultModel
-    {
-    //public HouseModel[] Houses {get; set;}
-    }
+    // public class HouseResultModel
+    // {
+    // //public HouseModel[] Houses {get; set;}
+    // }
 
     // (address, parcel, structure, deeds) are all taken form the API. 
     public class HouseModel
@@ -19,7 +19,7 @@ namespace FlippingProperty
     }
 
     // Class for strings in "address" from Estated API
-   // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
+    // Root myDeserializedClass = JsonConvert.DeserializeObject<Root>(myJsonResponse);
     public class Metadata
     {
         public string publishing_date { get; set; }

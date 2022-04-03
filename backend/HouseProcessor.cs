@@ -30,8 +30,6 @@ public static class HouseProcessor
             {
                 throw new Exception("The respones FAILED! in HouseProcessor, LoudHouse");
             }
-            
         }
     }
-
 }
