@@ -1,21 +1,24 @@
 using System.Text.Json;
 namespace FlippingProperty
 {
-    // public class HouseResultModel
-    // {
-    // //public HouseModel[] Houses {get; set;}
-    // }
-
-    // (address, parcel, structure, deeds) are all taken form the API. 
     public class HouseModel
     {
-        //private string[] address1; //if I want to work with index
 
-        public string address { get; set; }
-        public string parcel { get; set; }
-        public string structure { get; set; }
-        public string owner { get; set; }
-        public int deeds { get; set; }
+        //private string[] address1; //if I want to work with index
+        public Metadata metadata { get; set; }
+        public Address address { get; set; }
+        public Parcel parcel { get; set; }
+        public OtherArea otherArea { get; set; }
+        public OtherImprovement otherImprovement { get; set; }
+        public Structure structure { get; set; }
+        public Tax tax { get; set; }
+        public Assessment assessment { get; set; }
+        public MarketAssessment marketAssessment { get; set; }
+        public Owner owner { get; set; }
+        public Deed deed { get; set; }
+        public Data data { get; set; }
+        public Root root { get; set; }
+
     }
 
     // Class for strings in "address" from Estated API
@@ -42,8 +45,8 @@ namespace FlippingProperty
         public string zip_code { get; set; }
         public string zip_plus_four_code { get; set; }
         public string carrier_code { get; set; }
-        public double latitude { get; set; }
-        public double longitude { get; set; }
+        public double? latitude { get; set; }
+        public double? longitude { get; set; }
         public string geocoding_accuracy { get; set; }
         public string census_tract { get; set; }
     }
@@ -54,10 +57,10 @@ namespace FlippingProperty
         public string apn_unformatted { get; set; }
         public object apn_previous { get; set; }
         public string fips_code { get; set; }
-        public double frontage_ft { get; set; }
-        public double depth_ft { get; set; }
-        public int area_sq_ft { get; set; }
-        public double area_acres { get; set; }
+        public double? frontage_ft { get; set; }
+        public double? depth_ft { get; set; }
+        public int? area_sq_ft { get; set; }
+        public double? area_acres { get; set; }
         public string county_name { get; set; }
         public string county_land_use_code { get; set; }
         public string county_land_use_description { get; set; }
@@ -89,16 +92,16 @@ namespace FlippingProperty
 
     public class Structure
     {
-        public int year_built { get; set; }
+        public int? year_built { get; set; }
         public object effective_year_built { get; set; }
         public string stories { get; set; }
         public object rooms_count { get; set; }
-        public int beds_count { get; set; }
-        public double baths { get; set; }
-        public int partial_baths_count { get; set; }
+        public int? beds_count { get; set; }
+        public double? baths { get; set; }
+        public int? partial_baths_count { get; set; }
         public object units_count { get; set; }
         public string parking_type { get; set; }
-        public int parking_spaces_count { get; set; }
+        public int? parking_spaces_count { get; set; }
         public object pool_type { get; set; }
         public string architecture_type { get; set; }
         public object construction_type { get; set; }
@@ -118,7 +121,7 @@ namespace FlippingProperty
         public object interior_wall_type { get; set; }
         public string water_type { get; set; }
         public string sewer_type { get; set; }
-        public int total_area_sq_ft { get; set; }
+        public int? total_area_sq_ft { get; set; }
         public List<OtherArea> other_areas { get; set; }
         public List<string> other_rooms { get; set; }
         public List<object> other_features { get; set; }
@@ -128,26 +131,26 @@ namespace FlippingProperty
 
     public class Tax
     {
-        public int year { get; set; }
-        public int amount { get; set; }
+        public int? year { get; set; }
+        public int? amount { get; set; }
         public List<object> exemptions { get; set; }
         public string rate_code_area { get; set; }
     }
 
     public class Assessment
     {
-        public int year { get; set; }
-        public int land_value { get; set; }
-        public int improvement_value { get; set; }
-        public int total_value { get; set; }
+        public int? year { get; set; }
+        public int? land_value { get; set; }
+        public int? improvement_value { get; set; }
+        public int? total_value { get; set; }
     }
 
     public class MarketAssessment
     {
-        public int year { get; set; }
-        public int land_value { get; set; }
-        public int improvement_value { get; set; }
-        public int total_value { get; set; }
+        public int? year { get; set; }
+        public int? land_value { get; set; }
+        public int? improvement_value { get; set; }
+        public int? total_value { get; set; }
     }
 
     public class Owner
@@ -172,10 +175,10 @@ namespace FlippingProperty
         public string deed_book { get; set; }
         public string deed_page { get; set; }
         public string document_id { get; set; }
-        public int sale_price { get; set; }
+        public int? sale_price { get; set; }
         public string sale_price_description { get; set; }
-        public double transfer_tax { get; set; }
-        public bool distressed_sale { get; set; }
+        public double? transfer_tax { get; set; }
+        public bool? distressed_sale { get; set; }
         public string real_estate_owned { get; set; }
         public string seller_first_name { get; set; }
         public string seller_last_name { get; set; }
@@ -228,4 +231,3 @@ namespace FlippingProperty
         public List<object> warnings { get; set; }
     }
 }
-

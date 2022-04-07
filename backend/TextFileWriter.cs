@@ -1,47 +1,99 @@
-using System;
-using System.IO;
-using System.Collections.Generic;
+// using System;
+// using System.IO;
+// using System.Collections.Generic;
 
-namespace FlippingProperty;
+// using System.Text.Json;
 
-//TODO make it like it gets search result from HouseModel.cs
-internal class Program
-{
+// namespace FlippingProperty;
+
+// //TODO make it like it gets search result from HouseModel.cs
 
 
-    static void Main(string[] args)//Only one main is to have
-    {
-        Console.WriteLine("to exit press \"x\"");
-        var allLines = File.ReadAllLines("apiCallResult.txt");
-        var textReader = new StreamReader("apiCallResult.txt");
-        string firstLine = textReader.ReadLine(); //TODO should take the api
+// public class TextToFileWritere
+// {
+//     ///////
+//     public static List<HouseModel> HouseModels { get; set; }
+//     public static void LoudHouse()
+//     {
+//         if (File.Exists(""))// pass the json file path
+//         {
+//             var json = File.ReadAllText("houseModels.json");// pass the json file path
+            
+//         }
 
-        foreach (var item in allLines) 
-        {
-            Console.WriteLine(item);
-        }
+//     }
+//     // var json = JsonSerializer.Serialize(houseModels);
+//     // File.WriteAllText("houseModels.json", json);
+//     //     var newListOfHouseModels = JsonSerializer.Deserialize<List<HouseModel>>(json);
 
-        textReader.Close();
+//     ////////
 
-        if (firstLine == " ")
-        {
-            var textWriter = new StreamWriter("apiCallResult.txt");
-            textWriter.WriteLine("apiCallResult");
-            textWriter.Close();
-        }
 
-        while (true)
-        {
-            var list = new List<string>();
-            string input = Console.ReadLine();
+//     // public static void TextToFileWritereMethod(HouseModel ApiCallResult)
+//     // {
 
-            if (input == "x")
-            {
-                return;
-            }
+//     //     //Console.WriteLine("to exit press \"x\"");
+//     //     var allLines = File.ReadAllLines("apiCallResult.txt");
+//     //     //var textReader = new StreamReader("apiCallResult.txt");
+//     //     var textWriter = new StreamWriter("apiCallResult.txt");
+//     //     //textWriter; //TODO should take the api
 
-            list.Add(input);
-            File.AppendAllLines("apiCallResult.txt", list);
-        }
-    }
-}
+//     //     foreach (var item in ApiCallResult.metadata)
+//     //     {
+
+//     //         textWriter.WriteLine(item);
+//     //     }
+//     //     foreach (var item in ApiCallResult.address)
+//     //     {
+
+//     //         textWriter.WriteLine(item);
+//     //     }
+//     //     foreach (var item in ApiCallResult.parcel)
+//     //     {
+
+//     //         textWriter.WriteLine(item);
+//     //     }
+//     //     foreach (var item in ApiCallResult.structure)
+//     //     {
+
+//     //         textWriter.WriteLine(item);
+//     //     }
+//     //     foreach (var item in ApiCallResult.owner)
+//     //     {
+
+//     //         textWriter.WriteLine(item);
+//     //     }
+//     //     foreach (var item in ApiCallResult.deed)
+//     //     {
+
+//     //         textWriter.WriteLine(item);
+//     //     }
+
+//     //     //
+//     //     textWriter.Close();
+
+//         ///
+
+//         // if (firstLine == " ")
+//         // {
+//         //     //var textWriter = new StreamWriter("apiCallResult.txt");
+//         //     textWriter.WriteLine("apiCallResult");
+//         //     textWriter.Close();
+//         // }
+
+//         // while (true)
+//         // {
+//         //     var list = new List<string>();
+//         //     string input = textWriter();
+
+//         //     if (input == "x")
+//         //     {
+//         //         return;
+//         //     }
+
+//         //     list.Add(input);
+//         //     File.AppendAllLines("apiCallResult.txt", list);
+//         // }
+//     }
+// }
+

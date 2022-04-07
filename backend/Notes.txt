@@ -31,3 +31,4 @@ var newListOfAccounts = JsonSerializer.Deserialize<List<Account>>(json);
 data fro store.js
 
 
+259 Beacon St APT 4, Boston, MA 02116

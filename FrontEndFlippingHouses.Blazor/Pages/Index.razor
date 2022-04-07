@@ -1,4 +1,5 @@
 ﻿@using FlippingProperty;
+@inject IPropertyDataSource propertyDataSource;
 
 @page "/"
 
@@ -110,15 +111,20 @@
     </form>
 </div>
 <br>
-<br>
+<br>*@
+
 <div class="Search">
     <div class="col">
         <button @onclick="ApiCallSearch" class="button button-example5">Search</button>
     </div>
-</div> *@
+</div> 
+@if(houseModel!= null)
+{
+<div>
+    search result: @(houseModel?.data.owner?.name ?? "owner name not found")
+</div>
 
-
-
+}
 
 
 
@@ -128,11 +134,14 @@
     string City;
     string State;
     string ZipCode;
+    HouseModel houseModel;
 
     private async Task ApiCallSearch()
     {
         ApiHelper.StartClient();
-        HouseModel House = await HouseProcessor.LoudHouse(); // one house , houseMoel is the type
+        //HouseModel House = await HouseProcessor.LoudHouse(); // one house , houseMoel is the type
         //var House = ListofALLHouses[0]; //first house in the list
+        houseModel = await propertyDataSource.GetPropertyData(StreetAddress, City, State, ZipCode);
+
     }
 }
