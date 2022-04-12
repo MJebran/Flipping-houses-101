@@ -17,7 +17,8 @@ public static class HouseProcessor
             if(response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                await File.WriteAllTextAsync($"{street_address}.json", json);
+                var filePath = Path.Combine("searchResults",$"{street_address}.{zip_code}.json");
+                await File.WriteAllTextAsync(filePath, json);
                 var result = System.Text.Json.JsonSerializer.Deserialize<HouseModel>(json);
                 // takes the respones and converts it to the desired result that I want, specific data 
                 //HouseModel result = await response.Content.ReadAsAsync<HouseModel>();
