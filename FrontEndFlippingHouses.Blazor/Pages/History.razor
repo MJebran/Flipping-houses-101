@@ -14,32 +14,27 @@
 <table class="table">
     <thead>
         <tr>
+            <th>❤️</th>
             <th>Street address</th>
             <th>City</th>
             <th>State</th>
-            <th>ZipCode</th>
+            <th>Zip</th>
         </tr>
     </thead>
     <tbody>
         @if (true)
         {
-        
-            int i = 0;
-            
             foreach (var house in searchedHouses)
             {
-                string ID = "HouseNumber" + i.ToString();
-
-                <input type="checkbox" value = @($"FavoriteByUser[i]")>
-                <label for="favorites"> Favorite</label>
-
                 <tr>
-                    <td>@house.data.address.street_number, @house.data.address.street_name</td>
+                    <td>
+                        <input type="checkbox" @bind=house.IsFavorite>
+                    </td>
+                    <td>@house.data.address.formatted_street_address</td>
                     <td>@house.data.address.city</td>
                     <td>@house.data.address.state</td>
                     <td>@house.data.address.zip_code</td>
                 </tr>
-                i ++;
             }
         }
     </tbody>
@@ -49,7 +44,7 @@
 
 
 @code {
-    public List<bool> FavoriteByUser = new List<bool>(){};
+    
     @* public void updatesValue()
     {
         foreach (var item in FavoriteByUser)
@@ -61,7 +56,7 @@
     {
         foreach (var file in Directory.GetFiles("searchResults", "*.json"))
         {
-            FavoriteByUser.Add(false);
+            
             var json = await File.ReadAllTextAsync(file); //reads the file
             var houseModel = System.Text.Json.JsonSerializer.Deserialize<HouseModel>(json);//convering to an object
             searchedHouses.Add(houseModel);
@@ -72,12 +67,11 @@
     List<HouseModel> searchedHouses = new();
     private void sendsToFavoritePage()
     {
-        var usersChoiceInString = "";
-        foreach (var item in FavoriteByUser)
+        foreach (var item in searchedHouses)
         {
-            usersChoiceInString += item.ToString();
-
+            var json = System.Text.Json.JsonSerializer.Serialize(item);
+            File.WriteAllText(HouseProcessor.GetFileName(item), json);
         }
-        UriHelper.NavigateTo($"FavoriteHouses/{usersChoiceInString}");
+        UriHelper.NavigateTo($"FavoriteHouses/");
     }
 }

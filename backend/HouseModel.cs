@@ -6,19 +6,8 @@ namespace FlippingProperty
 
         //private string[] address1; //if I want to work with index
         public Metadata metadata { get; set; }
-        public Address address { get; set; }
-        public Parcel parcel { get; set; }
-        public OtherArea otherArea { get; set; }
-        public OtherImprovement otherImprovement { get; set; }
-        public Structure structure { get; set; }
-        public Tax tax { get; set; }
-        public Assessment assessment { get; set; }
-        public MarketAssessment marketAssessment { get; set; }
-        public Owner owner { get; set; }
-        public Deed deed { get; set; }
         public Data data { get; set; }
-        public Root root { get; set; }
-
+        public bool IsFavorite { get; set; }
     }
 
     // Class for strings in "address" from Estated API

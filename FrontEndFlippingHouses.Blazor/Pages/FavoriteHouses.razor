@@ -1,7 +1,7 @@
 @using FlippingProperty;
 @inject IPropertyDataSource propertyDataSource;
 
-@page "/FavoriteHouses/{HouseOne}"
+@page "/FavoriteHouses"
 
 <PageTitle>Index</PageTitle>
 
@@ -10,7 +10,7 @@
 <h1 class="Welcome">Favorite Houses</h1><br>
 
 
-
+@* show the favorite hre with html *@
 
 
 
@@ -21,7 +21,19 @@
 
 @code
 {
-    [Parameter]
-    public string HouseOne { get; set; }
-    
+    public List<HouseModel> favorites = new ();
+
+    protected override async Task OnInitializedAsync()
+    {
+        foreach (var file in Directory.GetFiles("searchResults", "*.json"))
+        {
+            var json = await File.ReadAllTextAsync(file); //reads the file
+            var houseModel = System.Text.Json.JsonSerializer.Deserialize<HouseModel>(json);//convering to an object
+            
+            if(houseModel.IsFavorite)
+            {
+                favorites.Add(houseModel);
+            }
+        }
+    }
 }

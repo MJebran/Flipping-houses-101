@@ -14,10 +14,10 @@ public static class HouseProcessor
         //string url = "checks if it writes on it or not";
         using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
         {
-            if(response.IsSuccessStatusCode)
+            if (response.IsSuccessStatusCode)
             {
                 var json = await response.Content.ReadAsStringAsync();
-                var filePath = Path.Combine("searchResults",$"{street_address}.{zip_code}.json");
+                var filePath = GetFileName(street_address, zip_code);
                 await File.WriteAllTextAsync(filePath, json);
                 var result = System.Text.Json.JsonSerializer.Deserialize<HouseModel>(json);
                 // takes the respones and converts it to the desired result that I want, specific data 
@@ -35,5 +35,16 @@ public static class HouseProcessor
                 throw new Exception("The respones FAILED! in HouseProcessor, LoudHouse");
             }
         }
+    }
+
+    // new method get file name that
+    public static string GetFileName(HouseModel house)
+    {
+        return GetFileName(house.data.address.formatted_street_address, house.data.address.zip_code);
+    }
+
+    public static string GetFileName(string street_address, string zip_code)
+    {
+        return Path.Combine("searchResults", $"{street_address}.{zip_code}.json");
     }
 }
