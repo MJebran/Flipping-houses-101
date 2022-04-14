@@ -1,0 +1,83 @@
+@using FlippingProperty;
+@inject NavigationManager UriHelper
+@inject IPropertyDataSource propertyDataSource;
+
+@page "/History"
+
+<PageTitle>Index</PageTitle>
+
+<link rel="stylesheet" href="css/styles.css">
+
+<h1 class="Welcome">Past search results</h1><br>
+
+@*tabel for the searchedResults *@
+<table class="table">
+    <thead>
+        <tr>
+            <th>Street address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>ZipCode</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (true)
+        {
+        
+            int i = 0;
+            
+            foreach (var house in searchedHouses)
+            {
+                string ID = "HouseNumber" + i.ToString();
+
+                <input type="checkbox" value = @($"FavoriteByUser[i]")>
+                <label for="favorites"> Favorite</label>
+
+                <tr>
+                    <td>@house.data.address.street_number, @house.data.address.street_name</td>
+                    <td>@house.data.address.city</td>
+                    <td>@house.data.address.state</td>
+                    <td>@house.data.address.zip_code</td>
+                </tr>
+                i ++;
+            }
+        }
+    </tbody>
+</table>
+<button @onclick = "sendsToFavoritePage">Favorite</button>
+
+
+
+@code {
+    public List<bool> FavoriteByUser = new List<bool>(){};
+    @* public void updatesValue()
+    {
+        foreach (var item in FavoriteByUser)
+        {
+            item =
+        }
+    } *@
+    protected override async Task OnInitializedAsync()
+    {
+        foreach (var file in Directory.GetFiles("searchResults", "*.json"))
+        {
+            FavoriteByUser.Add(false);
+            var json = await File.ReadAllTextAsync(file); //reads the file
+            var houseModel = System.Text.Json.JsonSerializer.Deserialize<HouseModel>(json);//convering to an object
+            searchedHouses.Add(houseModel);
+        }
+    }
+    
+    // list of house models
+    List<HouseModel> searchedHouses = new();
+    private void sendsToFavoritePage()
+    {
+        var usersChoiceInString = "";
+        foreach (var item in FavoriteByUser)
+        {
+            usersChoiceInString += item.ToString();
+
+        }
+        UriHelper.NavigateTo($"FavoriteHouses/{usersChoiceInString}");
+    }
+}

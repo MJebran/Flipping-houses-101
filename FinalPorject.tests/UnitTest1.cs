@@ -1,4 +1,7 @@
 using NUnit.Framework;
+using System.Net.Http.Headers;
+
+using FlippingProperty;
 
 namespace FinalProject.tests;
 
@@ -7,19 +10,22 @@ public class Tests
     [SetUp]
     public void Setup()
     {
+        
     }
 
+    // [Test]
+    // public void ApiHelperTest()
+    // {
+    //     var HttpClient = new ApiHelper();
+    //     HttpClient.StartClient();
+    //     Assert.AreEqual(HttpClient.HttpClient, new MediaTypeWithQualityHeaderValue("application/json"));
+    // }
     [Test]
-    public void ApiHelper()
+    public void StaticFileDataSource()
     {
-        var StartClient = new HttpClient();
-        Assert.AreEqual(StartClient);
+        var HouseModel GetPropertyData = new 
+
     }
 
-    [Test]
-    public void HouseProcessor()
-    {
-        var LoudHouse = new LoudHouse();
-        Assert.AreEqual(LoudHouse);
-    }
+    
 }

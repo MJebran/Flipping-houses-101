@@ -1,0 +1,27 @@
+@using FlippingProperty;
+@inject IPropertyDataSource propertyDataSource;
+
+@page "/FavoriteHouses/{HouseOne}"
+
+<PageTitle>Index</PageTitle>
+
+<link rel="stylesheet" href="css/styles.css">
+
+<h1 class="Welcome">Favorite Houses</h1><br>
+
+
+
+
+
+
+
+
+
+
+
+@code
+{
+    [Parameter]
+    public string HouseOne { get; set; }
+    
+}
