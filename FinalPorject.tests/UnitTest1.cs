@@ -23,11 +23,11 @@ public class Tests
         // string Task<HouseModel> ApiDataSourcetest.GetPropertyData(string address, string city, string state, string zip_code);
         // Assert.Equals(HouseProcessor.LoudHouse(address, city, state, zip_code));
     }
-    // [Test]
-    // public void addressTest()
-    // {
-    //     Assert.AreEqual("135 W Center St", theHouse.data.address.formatted_street_address);
-    // }
+    [Test]
+    public void addressTest()
+    {
+        Assert.AreEqual("135 W Center St", theHouse.data.address.formatted_street_address);
+    }
     // [Test]
     // public void APICallTest()
     // {
