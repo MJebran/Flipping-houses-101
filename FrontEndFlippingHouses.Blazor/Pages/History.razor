@@ -24,17 +24,19 @@
     <tbody>
         @if (true)
         {
+            int i = 0;
             foreach (var house in searchedHouses)
             {
                 <tr>
                     <td>
                         <input type="checkbox" @bind=house.IsFavorite>
                     </td>
-                    <td>@house.data.address.formatted_street_address</td>
+                    <td><a href=@($"/Details/{i}")>@house.data.address.formatted_street_address</a></td>
                     <td>@house.data.address.city</td>
                     <td>@house.data.address.state</td>
                     <td>@house.data.address.zip_code</td>
                 </tr>
+                i++;
             }
         }
     </tbody>

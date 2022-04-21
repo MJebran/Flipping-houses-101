@@ -12,8 +12,31 @@
 
 @* show the favorite hre with html *@
 
-
-
+<table class="table">
+    <thead>
+        <tr>
+            <th>Street address</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Zip</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (true)
+        {
+            foreach (var house in favorites)
+            { 
+                var HouseItem = house.Item1;
+                <tr>
+                    <td><a href=@($"/Details/{house.Item2}")>@HouseItem.data.address.formatted_street_address</a></td>
+                    <td>@HouseItem.data.address.city</td>
+                    <td>@HouseItem.data.address.state</td>
+                    <td>@HouseItem.data.address.zip_code</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
 
 
 
@@ -21,19 +44,22 @@
 
 @code
 {
-    public List<HouseModel> favorites = new ();
+    public List<(HouseModel, int)> favorites = new List<(HouseModel, int)>();
 
     protected override async Task OnInitializedAsync()
     {
+        int index = 0;
         foreach (var file in Directory.GetFiles("searchResults", "*.json"))
         {
             var json = await File.ReadAllTextAsync(file); //reads the file
             var houseModel = System.Text.Json.JsonSerializer.Deserialize<HouseModel>(json);//convering to an object
-            
-            if(houseModel.IsFavorite)
+
+            if (houseModel.IsFavorite)
             {
-                favorites.Add(houseModel);
+                favorites.Add((houseModel, index));
             }
+
+            index++;
         }
     }
 }
