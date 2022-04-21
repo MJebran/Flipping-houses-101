@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "rpXWLVG4iUJioJ3QIFfT4C9i821kQLe47BI6V7ujjQriQcVun+S+q+ilk/OEeUn73NzWTdRWAMu+JOaxZEnqmA==",
+  "dgSpecHash": "ApxVkBNaU2X8zQQYQTLTKTgyQfqND7G4oQCGKTe57zCB56AUFBtX+maG++LRX4OSEHMyDjYzjoxOZE3kXZio7A==",
   "success": true,
-  "projectFilePath": "/Users/mustafajebran/Desktop/OOP/flipping-houses-101/FinalPorject.tests/FinalPorject.tests.csproj",
+  "projectFilePath": "/Users/mustafajebran/Desktop/untitled folder 2/flipping-houses-101/FinalPorject.tests/FinalPorject.tests.csproj",
   "expectedPackageFiles": [
     "/Users/mustafajebran/.nuget/packages/coverlet.collector/3.1.0/coverlet.collector.3.1.0.nupkg.sha512",
     "/Users/mustafajebran/.nuget/packages/microsoft.aspnet.webapi.client/5.2.7/microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",

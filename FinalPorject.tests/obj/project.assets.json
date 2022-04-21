@@ -4527,11 +4527,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/mustafajebran/Desktop/OOP/flipping-houses-101/FinalPorject.tests/FinalPorject.tests.csproj",
+      "projectUniqueName": "/Users/mustafajebran/Desktop/untitled folder 2/flipping-houses-101/FinalPorject.tests/FinalPorject.tests.csproj",
       "projectName": "FinalPorject.tests",
-      "projectPath": "/Users/mustafajebran/Desktop/OOP/flipping-houses-101/FinalPorject.tests/FinalPorject.tests.csproj",
+      "projectPath": "/Users/mustafajebran/Desktop/untitled folder 2/flipping-houses-101/FinalPorject.tests/FinalPorject.tests.csproj",
       "packagesPath": "/Users/mustafajebran/.nuget/packages/",
-      "outputPath": "/Users/mustafajebran/Desktop/OOP/flipping-houses-101/FinalPorject.tests/obj/",
+      "outputPath": "/Users/mustafajebran/Desktop/untitled folder 2/flipping-houses-101/FinalPorject.tests/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/mustafajebran/.nuget/NuGet/NuGet.Config"
@@ -4546,8 +4546,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "/Users/mustafajebran/Desktop/OOP/flipping-houses-101/backend/backend.csproj": {
-              "projectPath": "/Users/mustafajebran/Desktop/OOP/flipping-houses-101/backend/backend.csproj"
+            "/Users/mustafajebran/Desktop/untitled folder 2/flipping-houses-101/backend/backend.csproj": {
+              "projectPath": "/Users/mustafajebran/Desktop/untitled folder 2/flipping-houses-101/backend/backend.csproj"
             }
           }
         }
