@@ -1,53 +1,74 @@
 using NUnit.Framework;
-using System.Net.Http.Headers;
-
+using System;
 using FlippingProperty;
 
 namespace FinalProject.tests;
 
 public class Tests
 {
-    public HouseModel theHouse;
+
     [SetUp]
     public void Setup()
     {
-        
+
+    }
+
+    //[Test]
+    // public void deg2radTest()
+    // {  
+
+    //     var rads = ComparisonResult.deg2rad(45.789);
+    //     Assert.AreEqual( deg * Math.PI / 180.0);
+    // }
+    [Test]
+    public void deg2radTest()
+    {
+        double deg = 180;
+        deg = (deg / Math.PI) * 45.54;
+        deg = ComparisonResult.deg2rad(45.789);
     }
     [Test]
-    public async void ApiDataSourceTest()
+    public void rad2degTest()
     {
-        var ApiDataSourceVar = new ApiDataSource();
-        theHouse = await ApiDataSourceVar.GetPropertyData("135 W Center St", "Ephraim", "UT", "84627");
-        Assert.Pass();
-
-        // string Task<HouseModel> ApiDataSourcetest.GetPropertyData(string address, string city, string state, string zip_code);
-        // Assert.Equals(HouseProcessor.LoudHouse(address, city, state, zip_code));
+        double rads = 54.3434;
+        rads = (rads * Math.PI / 180.0);
+        rads = ComparisonResult.deg2rad(45.789);
     }
     [Test]
-    public void addressTest()
+    public void CalcuteDifferenceOfCoordinatesTest()
     {
-        Assert.AreEqual("135 W Center St", theHouse.data.address.formatted_street_address);
+        double latitudeA = 12.34343;
+        double latitudeB = 13.12232;
+        double longitudeA = 14.33434;
+        double longitudeB = 15.00008;
+
+        double rads = 54.3434;
+        rads = ComparisonResult.deg2rad(45.789);
+        rads = (rads * Math.PI / 180.0);
+
+        double deg = 180;
+        deg = (deg / Math.PI) * 45.54;
+        deg = ComparisonResult.deg2rad(45.789);
+
+        double theta = longitudeA - longitudeB;
+        double dist = Math.Sin(deg2rad(latitudeA)) * Math.Sin(deg2rad(latitudeB)) + Math.Cos(deg2rad(latitudeA)) * Math.Cos(deg2rad(latitudeB)) * Math.Cos(deg2rad(theta));
+        dist = Math.Acos(dist);
+        dist = rad2deg(dist);
+        dist = dist * 60 * 1.1515;
     }
-    // [Test]
-    // public void APICallTest()
-    // {
-    //     var HouseProcessor = new HouseModel();
-    //     FlippingProperty.
-    // }
 
-    // [Test]
-    // public void ApiHelperTest()
-    // {
-    //     var HttpClient = new ApiHelper();
-    //     HttpClient.StartClient();
-    //     Assert.AreEqual(HttpClient.HttpClient, new MediaTypeWithQualityHeaderValue("application/json"));
-    // }
-    // [Test]
-    // public void StaticFileDataSource()
-    // {
-    //     var HouseModel GetPropertyData = new 
+    private double rad2deg(double dist)
+    {
+        double deg = 180;
+        deg = (deg / Math.PI) * 45.54;
+        return deg;
+    }
 
-    // }
-
-    
+    private double deg2rad(double latitudeA)
+    {
+        double rads = 54.3434;
+        rads = ComparisonResult.deg2rad(45.789);
+        rads = (rads * Math.PI / 180.0);
+        return rads;
+    }
 }
