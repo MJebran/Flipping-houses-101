@@ -18,11 +18,14 @@
     <label for="Street Address">Street Address : </label><input type="text" placeholder="Street Address" title="Please enter the Street Address" @bind = "StreetAddress">
 </div>
 <br>
+
+
 <div>
     <label for="City">City : </label><input type="text" placeholder="City name" title="Please enter the City name" @bind = "City">
 </div>
 <br>
 
+@* Drop Down for states *@
 <form>
     <fieldset>
         <label for="state">State: </label>
@@ -92,27 +95,8 @@
     pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$"><br>
 <br>
 
-@* <fieldset>
-    <label for="price">Choose a maximum house price $: </label>
-    <input type="number" placeholder="Max Price" min="0" step="1000" max="10000000000">
-</fieldset><br>
 
-<div>
-    <form>
-        <fieldset>
-            <label for="property">Select type of property: </label>
-            <select id="property" name="property">
-                <option value="---">---</option>
-                <option value="Apartment">Apartment</option>
-                <option value="House">House</option>
-                <option value="Villa">Villa</option>
-            </select>
-        </fieldset>
-    </form>
-</div>
-<br>
-<br>*@
-
+@* Button for searching the house *@
 <div class="Search">
     <div class="col">
         <button @onclick="ApiCallSearch" class="button button-example5">Search</button>
@@ -123,7 +107,6 @@
 <div>
     search result: @(houseModel?.data.owner?.name ?? "owner name not found")
 </div>
-
 }
 
 
@@ -139,8 +122,6 @@
     private async Task ApiCallSearch()
     {
         ApiHelper.StartClient();
-        //HouseModel House = await HouseProcessor.LoudHouse(); // one house , houseMoel is the type
-        //var House = ListofALLHouses[0]; //first house in the list
         houseModel = await propertyDataSource.GetPropertyData(StreetAddress, City, State, ZipCode);
     }
 }
