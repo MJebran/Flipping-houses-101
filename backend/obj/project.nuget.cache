@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "93ksc+79hMiZnOPnvv/sl0mG8vjd3lMevxT+oNaUvuzm+0rR2sDHNuHRMwOVJ7JQwFIaUDVhc4YwrXnG2k36rw==",
+  "dgSpecHash": "ShTXk+JaDLtH9ueU1cP0QEDIwL2YWLj6rXPcO+o/XQahDLfo0uxSZfVyIhbaFh9jWqSHt5HC1uwX1im+CALTvA==",
   "success": true,
-  "projectFilePath": "/Users/mustafajebran/Desktop/untitled folder 3/flipping-houses-101/backend/backend.csproj",
+  "projectFilePath": "/Users/mustafajebran/Desktop/flipping-houses-101/backend/backend.csproj",
   "expectedPackageFiles": [
     "/Users/mustafajebran/.nuget/packages/microsoft.aspnet.webapi.client/5.2.7/microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "/Users/mustafajebran/.nuget/packages/microsoft.csharp/4.3.0/microsoft.csharp.4.3.0.nupkg.sha512",

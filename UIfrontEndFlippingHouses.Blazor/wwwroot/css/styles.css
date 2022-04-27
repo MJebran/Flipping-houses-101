@@ -1,0 +1,34 @@
+h1 {
+    text-align: center;
+    font-family: lora;
+    color: blueviolet;
+}
+h2 {
+    text-align: center;
+    font-family: lora;
+    color:crimson;
+}
+
+.button {
+    text-align: center;
+    display: inline-block;
+    color: crimson;
+    /* text-decoration: none; */
+    padding:  20px 50px;
+    border: 3px solid 
+    #3c67e3;
+
+
+}
+.button:hover {
+    animation: pulsate ls ease-in-out;
+}
+
+@keyframes pulsate{
+    0%{
+        box-shadow:
+        0 0 25px #5ddcff,
+        0 0 50px #4e00c3;
+    }
+}
+

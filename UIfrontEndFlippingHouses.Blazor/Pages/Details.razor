@@ -1,0 +1,38 @@
+@using FlippingProperty;
+@using System.IO;
+@inject IPropertyDataSource propertyDataSource;
+
+@page "/Details/{index}"
+
+@if (ChoosenHouse != null)
+{
+
+    <p><label for="Owner name">Owner name:</label> @ChoosenHouse.data.owner.name</p>
+    <p><label for="Address">Street Address:</label> @ChoosenHouse.data.address.formatted_street_address</p>
+    <p><label for="city">City:</label> @ChoosenHouse.data.address.city</p>
+    <p><label for="state">State:</label> @ChoosenHouse.data.address.state</p>
+    <p><label for="zip">Zip:</label> @ChoosenHouse.data.address.zip_code</p>
+    <p><label for="county name">County:</label> @ChoosenHouse.data.parcel.county_name</p>
+    <p><label for="subdivision">Subdivision:</label> @ChoosenHouse.data.parcel.subdivision</p>
+    <p><label for="municipality">Municipality:</label> @ChoosenHouse.data.parcel.municipality</p>
+    <p><label for="area">Area per square feet:</label> @ChoosenHouse.data.parcel.area_sq_ft</p>
+    @* <p><label for="">:</label> @ChoosenHouse.data.</p> *@
+    @* <label for="">:</label> *@
+}
+
+@code {
+    @* [Parameter]
+        public String address { get; set; }
+        [Parameter]
+        public String zip { get; set; } *@
+    [Parameter]
+    public string index { get; set; }
+    public HouseModel ChoosenHouse = null;
+    protected override async Task OnInitializedAsync()
+    {
+        var houseFiles = Directory.GetFiles("searchResults", "*.json");
+        var json = await File.ReadAllTextAsync(houseFiles[int.Parse(index)]); //reads the file
+        var houseModel = System.Text.Json.JsonSerializer.Deserialize<HouseModel>(json);//convering to an object
+        ChoosenHouse = houseModel;
+    }
+}

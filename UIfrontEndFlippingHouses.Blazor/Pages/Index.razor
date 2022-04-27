@@ -99,7 +99,7 @@
 @* Button for searching the house *@
 <div class="Search">
     <div class="col">
-        <button @onclick="ApiCallSearch" class="button button-example5">Search</button>
+        <button @onclick="ApiCallSearch" class="button">Search</button>
     </div>
 </div> 
 @if(houseModel!= null)
@@ -109,6 +109,10 @@
 </div>
 }
 
+@if (error == true)
+{
+    <h2>Invalid address!, <br>or there was no data by the API "Estated"</h2>
+}
 
 
 @* Write all your C# code *@
@@ -117,11 +121,21 @@
     string City;
     string State;
     string ZipCode;
+    bool error = false;
     HouseModel houseModel;
+
 
     private async Task ApiCallSearch()
     {
         ApiHelper.StartClient();
-        houseModel = await propertyDataSource.GetPropertyData(StreetAddress, City, State, ZipCode);
+        try
+        {
+            houseModel = await propertyDataSource.GetPropertyData(StreetAddress, City, State, ZipCode);
+        }
+        catch (System.Exception)
+        {
+            
+            error = true;
+        }
     }
 }

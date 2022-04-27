@@ -13,12 +13,20 @@ public static class HouseProcessor
         {
             if (response.IsSuccessStatusCode)
             {
+
                 var json = await response.Content.ReadAsStringAsync();
-                var filePath = GetFileName(street_address, zip_code);
-                await File.WriteAllTextAsync(filePath, json);
                 var result = System.Text.Json.JsonSerializer.Deserialize<HouseModel>(json);
-                
-                return result;
+                if (result.data != null)
+                {
+                    var filePath = GetFileName(street_address, zip_code);
+                    await File.WriteAllTextAsync(filePath, json);
+                    return result;
+                }
+                else
+                {
+                    throw new Exception("Invalid address!");
+                }
+
             }
             else
             {
