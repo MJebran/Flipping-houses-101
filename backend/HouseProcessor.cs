@@ -7,7 +7,8 @@ public static class HouseProcessor
     {
         // The list of all houses in a list, if it is a list of houses use the commented code
         //var TheResultOfAllHouses = new List<HouseModel>();
-        string url = $"https://apis.estated.com/v4/property?token=RUa4KZxBKXmpmXgKXS5JM6cDmIcLcF&street_address={street_address}&city={city}&state={state}&zip_code={zip_code}";
+       string url = $"https://apis.estated.com/v4/property?token=LDk1UZH3wFEF3OOCgAON8B6ejcrd1Z&street_address={street_address}&city={city}&state={state}&zip_code={zip_code}";
+        //string url =$"https://apis.estated.com/v4/property?token=LDk1UZH3wFEF3OOCgAON8B6ejcrd1Z&street_address={street_address}&city={city}&state={state}&zip_code={zip_code}";
         // receives the response and returns the response as a list of house models
         using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(url))
         {
